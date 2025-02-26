@@ -44,23 +44,26 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col flex-grow p-8 bg-gray-100 min-h-screen">
+    <div className="flex flex-col flex-grow p-4 bg-gray-100 max-h-screen">
+      {/* Header */}
       <div className="flex items-center justify-between bg-white shadow-md p-6 rounded-lg">
         <h1 className="text-2xl font-bold text-gray-800">Anikala Kanban Board</h1>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+          className="px-4 py-1 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
         >
           Add New Task
         </button>
       </div>
 
-      <div className="mt-6 flex flex-col items-center">
+      {/* Board */}
+      <div className="mt-3 flex flex-col items-center">
         <Board onEditTask={handleOpenEditModal} onDeleteTask={handleDeleteTask} />
       </div>
 
+      {/* Modal with Glassmorphism */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0  backdrop-blur-md flex items-center justify-center">
           <TaskModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}

@@ -2,10 +2,12 @@ import { useDrag } from "react-dnd";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
 const priorityColors = {
-  High: "bg-red-500 text-white",
-  Medium: "bg-yellow-400 text-gray-900",
-  Low: "bg-green-500 text-white",
+  Critical: "bg-red-700 text-white",    // Extremely urgent tasks (e.g., deadlines in a few hours)
+  High: "bg-red-500 text-white",          // High urgency tasks (e.g., tasks due today)
+  Medium: "bg-orange-400 text-white",  // Moderate urgency tasks (e.g., tasks due within a few days)
+  Low: "bg-green-500 text-white",         // Low urgency tasks (e.g., tasks with flexible deadlines)
 };
+
 
 const TaskCard = ({ task, column, index, onEditTask, onDeleteTask }) => {
   const [{ isDragging }, drag] = useDrag({
@@ -20,9 +22,9 @@ const TaskCard = ({ task, column, index, onEditTask, onDeleteTask }) => {
     <div
       ref={drag}
       style={{border:"1px solid #F2F2F2"}}
-      className={`bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg ${
+      className={`bg-white  p-4 rounded-lg shadow-lg ${
         priorityColors[task.priority] || "border-gray-300"
-      } transition-all transform ${isDragging ? "opacity-50 scale-95" : "hover:scale-[1.02]"}`}
+      } transition-all transform ${isDragging ? " scale-95" : "hover:scale-[1.1]"}`}
     >
       {/* Task Header */}
       <div className="flex justify-between items-center">

@@ -18,13 +18,10 @@ const Column = ({ name, tasks, onMoveTask, onDeleteTask, onEditTask }) => {
   return (
     <div
       ref={drop}
-      className={`p-4 bg-white rounded-lg shadow-md flex-1 flex flex-col ${
-        isOver ? "bg-gray-100 border-l border-gray-300" : ""
-      }`}
-    >
-      <h2 className="text-lg font-bold mb-2 capitalize">{name}</h2>
+      className={`p-4 bg-white rounded-lg shadow-md w-[300px] h-[500px]  max-h-[500px]flex flex-col border-2 border-rose-500 flex-col ${isOver ? "bg-gray-100 border-l border-gray-300" : ""   }`}>
+      <h2 className="text-lg font-bold mb-2  capitalize">{name}</h2>
       {/* Scrollable container for tasks */}
-      <div className="space-y-2 flex-1 overflow-y-auto max-h-[500px]">
+      <div className="space-y-2 flex-1 overflow-y-auto ">
         {tasks.map((task, index) => (
           <Task
             key={task.id}
