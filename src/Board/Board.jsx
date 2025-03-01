@@ -12,7 +12,16 @@ const Board = ({ onEditTask, onDeleteTask }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 bg-gray-100  w-full  gap-5 items-stretch">
+    <div className="py-2 bg-gray-100 flex w-full gap-5 items-stretch">
+      {columns.map((column, index) => (
+        <div
+          key={column}
+          className={`flex-1 flex flex-col ${
+            index !== 0 ? "border-l border-gray-300" : "" // Left border for all except first column
+          } ${
+            index !== columns.length - 1 ? "border-r border-gray-300" : "" // Right border for all except last column
+          }`}
+        >
           <Column
             name={column}
             tasks={tasks[column]}
@@ -20,6 +29,8 @@ const Board = ({ onEditTask, onDeleteTask }) => {
             onEditTask={onEditTask}
             onDeleteTask={onDeleteTask}
           />
+        </div>
+      ))}
     </div>
   );
 };
